@@ -7,12 +7,5 @@
       </button>
     </li>
   </ul>
-  <div *ngIf="selectedCharacter">
-    <h2>{{selectedCharacter.name | uppercase}}</h2>
-    <h3> Details </h3>
-    <div>Originally appeared in: {{selectedCharacter.gameOrigin}}</div>
-    <div>
-      <label for="hero-name">Hero name: </label>
-      <input id="hero-name" [(ngModel)]="selectedCharacter.name" placeholder="name">
-    </div>
-  </div>
+  
+  <app-character-detail [character]="selectedCharacter"></app-character-detail>
