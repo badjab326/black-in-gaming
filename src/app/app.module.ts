@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CharactersComponent } from './characters/characters.component';
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
     CharacterDetailComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,6 +20,6 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
     FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
