@@ -16,4 +16,9 @@ export class CharacterService {
     this.messageService.add('CharacterService: fetched characters');
     return characters;
   }
+  getCharacter(id: number): Observable<Character> {
+    const character = CHARACTERS.find(c => c.id === id)!;
+    this.messageService.add(`CharacterService: fetched hero id=${id}`);
+    return of(character);
+  }
 }

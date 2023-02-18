@@ -13,16 +13,17 @@ export class CharactersComponent {
 
   characters: Character[] = [];
 
-  constructor(private characterService: CharacterService, private messageService: MessageService) { }
+  constructor(private characterService: CharacterService) { }
+  // constructor(private characterService: CharacterService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getCharacters();
   }
 
-  onSelect(character: Character): void {
-    this.selectedCharacter = character;
-    this.messageService.add(`CharactersComponent: Selected character id=${character.id}`);
-  }
+  // onSelect(character: Character): void {
+  //   this.selectedCharacter = character;
+  //   this.messageService.add(`CharactersComponent: Selected character id=${character.id}`);
+  // }
 
   getCharacters(): void {
     this.characterService.getCharacters()

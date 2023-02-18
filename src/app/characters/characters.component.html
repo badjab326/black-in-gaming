@@ -1,11 +1,22 @@
 <h2>Black Characters in Video Games</h2>
 <ul class="heroes">
     <li *ngFor="let character of characters">
-      <button [class.selected]="character === selectedCharacter" type="button" (click)="onSelect(character)">
-        <span class="badge">{{character.gameOrigin}} </span>
-        <span class="name">{{character.name}}</span>
-      </button>
+        <a routerLink="/detail/{{character.id}}">
+            <span class="badge">{{character.gameOrigin}}</span> {{character.name}}
+        </a>
     </li>
   </ul>
-  
+
   <app-character-detail [character]="selectedCharacter"></app-character-detail>
+
+  <!-- <h2>Black Characters in Video Games</h2>
+  <ul class="heroes">
+      <li *ngFor="let character of characters">
+        <button type="button" [class.selected]="character === selectedCharacter" (click)="onSelect(character)">
+          <span class="badge">{{character.gameOrigin}} </span>
+        </button>
+      </li>
+    </ul>
+  
+    <app-character-detail [character]="selectedCharacter"></app-character-detail> -->
+  
