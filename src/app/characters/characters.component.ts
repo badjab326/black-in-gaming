@@ -29,4 +29,20 @@ export class CharactersComponent {
     this.characterService.getCharacters()
         .subscribe(characters => this.characters = characters);
   }  
+
+  add(name: string, gameOrigin: string): void {
+    name = name.trim();
+    gameOrigin = gameOrigin.trim();
+    if (!name && !gameOrigin) { return; }
+    this.characterService.addCharacter({ name, gameOrigin } as Character)
+      .subscribe(character => {
+        this.characters.push(character);
+      });
+  }
+
+  delete(character: Character): void {
+    this.characters = this.characters.filter(c => c !== character);
+    this.characterService.deleteCharacter(character.id).subscribe();
+  }
+
 }

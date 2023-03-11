@@ -3,22 +3,97 @@ import { Character } from './character';
 import { CHARACTERS } from './mock-characters';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService) { }
+
+  /** Log a CharacterService message with the MessageService */
+  private log(message: string) {
+    this.messageService.add(`CharacterService: ${message}`);
+  }
+
+  private charactersUrl = 'api/characters';  // URL to web api
+
+  // Handle Http operation that failed.
+  // Let the app continue.
+  // @param operation - name of the operation that failed
+  // @param result - optional value to return as the observable result
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+  
+      // TODO: send the error to remote logging infrastructure
+      console.error(error); // log to console instead
+  
+      // TODO: better job of transforming error for user consumption
+      this.log(`${operation} failed: ${error.message}`);
+  
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   getCharacters(): Observable<Character[]> {
-    const characters = of(CHARACTERS);
-    this.messageService.add('CharacterService: fetched characters');
-    return characters;
+    return this.http.get<Character[]>(this.charactersUrl)
+    .pipe(
+      tap(_ => this.log('fetched characters')),
+      catchError(this.handleError<Character[]>('getCharacters', []))
+    );
   }
+
   getCharacter(id: number): Observable<Character> {
-    const character = CHARACTERS.find(c => c.id === id)!;
-    this.messageService.add(`CharacterService: fetched hero id=${id}`);
-    return of(character);
+    const url = `${this.charactersUrl}/${id}`;
+    return this.http.get<Character>(url).pipe(
+      tap(_ => this.log(`fetched character id=${id}`)),
+      catchError(this.handleError<Character>(`getCharacter id=${id}`))
+  );
+  }
+
+  updateCharacter(character: Character): Observable<any> {
+    return this.http.put(this.charactersUrl, character, this.httpOptions).pipe(
+      tap(_ => this.log(`updated character id=${character.id}`)),
+      catchError(this.handleError<any>('updateCharacter'))
+    );
+  }
+
+  // POST: add a new hero to the server
+  addCharacter(character: Character): Observable<Character> {
+    return this.http.post<Character>(this.charactersUrl, character, this.httpOptions).pipe(
+      tap((newCharacter: Character) => this.log(`added character w/ id=${newCharacter.id}`)),
+      catchError(this.handleError<Character>('addCharacter'))
+    );
+  }
+
+  deleteCharacter(id: number): Observable<Character> {
+    const url = `${this.charactersUrl}/${id}`;
+    return this.http.delete<Character>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted character id=${id}`)),
+      catchError(this.handleError<Character>('deleteCharacter'))
+    );
+  }
+
+  searchCharacters(term: string): Observable<Character[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<Character[]>(`${this.charactersUrl}/?name=${term}`).pipe(
+      tap(x => x.length ?
+         this.log(`found characters matching "${term}"`) :
+         this.log(`no characters matching "${term}"`)),
+      catchError(this.handleError<Character[]>('searchCharacters', []))
+    );
   }
 }

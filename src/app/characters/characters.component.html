@@ -1,13 +1,23 @@
 <h2>Black Characters in Video Games</h2>
+<div>
+  <label for="new-hero">Character Name: </label>
+  <input id="new-hero" #characterName />
+  <label for="new-hero">Character Game Origin: </label>
+  <input id="new-hero" #characterGameOrigin />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add(characterName.value, characterGameOrigin.value); characterName.value=''; characterGameOrigin.value=''">
+    Add Character!
+  </button>
+</div>
 <ul class="heroes">
     <li *ngFor="let character of characters">
         <a routerLink="/detail/{{character.id}}">
             <span class="badge">{{character.gameOrigin}}</span> {{character.name}}
         </a>
+        <button type="button" class="delete" title="delete character" (click)="delete(character)">x</button>
     </li>
   </ul>
-
-  <app-character-detail [character]="selectedCharacter"></app-character-detail>
 
   <!-- <h2>Black Characters in Video Games</h2>
   <ul class="heroes">

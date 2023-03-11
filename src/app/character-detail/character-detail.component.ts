@@ -32,5 +32,12 @@ export class CharacterDetailComponent {
     this.location.back()
   }
 
+  save(): void {
+    if (this.character) {
+      this.characterService.updateCharacter(this.character)
+        .subscribe(() => this.goBack());
+    }
+  }
+
 }
 
