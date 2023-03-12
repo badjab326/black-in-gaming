@@ -30,11 +30,11 @@ export class CharactersComponent {
         .subscribe(characters => this.characters = characters);
   }  
 
-  add(name: string, gameOrigin: string): void {
+  add(name: string, game: string): void {
     name = name.trim();
-    gameOrigin = gameOrigin.trim();
-    if (!name && !gameOrigin) { return; }
-    this.characterService.addCharacter({ name, gameOrigin } as Character)
+    game = game.trim();
+    if (!name && !game) { return; }
+    this.characterService.addCharacter({ name, game: { title: game } } as Character)
       .subscribe(character => {
         this.characters.push(character);
       });

@@ -2,7 +2,7 @@
 
     <h2>{{character.name | uppercase}}</h2>
     <h3>Details</h3>
-    <div><span>Originally appeared in: </span>{{character.gameOrigin}}</div>
+    <div><span>Originally appeared in: </span>{{character.game.title}}</div>
     <div>
       <label for="hero-name">Character name: </label>
       <input id="hero-name" [(ngModel)]="character.name" placeholder="name">

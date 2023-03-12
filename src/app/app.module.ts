@@ -8,8 +8,8 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryDataService } from './in-memory-data.service';
 import { CharacterSearchComponent } from './character-search/character-search.component';
 
 @NgModule({
@@ -30,9 +30,9 @@ import { CharacterSearchComponent } from './character-search/character-search.co
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-    InMemoryDataService, { dataEncapsulation: false }
-)
+//     HttpClientInMemoryWebApiModule.forRoot(
+//     InMemoryDataService, { dataEncapsulation: false }
+// )
   ],
   providers: [],
   bootstrap: [ AppComponent ]

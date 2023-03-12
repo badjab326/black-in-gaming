@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Character } from './character';
-import { CHARACTERS } from './mock-characters';
 import { Observable, of } from 'rxjs';
 import { MessageService } from './message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -20,7 +19,7 @@ export class CharacterService {
     this.messageService.add(`CharacterService: ${message}`);
   }
 
-  private charactersUrl = 'api/characters';  // URL to web api
+  private charactersUrl = 'http://localhost:3000/api/characters';  // URL to web api
 
   // Handle Http operation that failed.
   // Let the app continue.
@@ -46,9 +45,10 @@ export class CharacterService {
   };
 
   getCharacters(): Observable<Character[]> {
-    return this.http.get<Character[]>(this.charactersUrl)
+    return this.http.get<any>(this.charactersUrl)
     .pipe(
       tap(_ => this.log('fetched characters')),
+      map(response => response.docs),
       catchError(this.handleError<Character[]>('getCharacters', []))
     );
   }
