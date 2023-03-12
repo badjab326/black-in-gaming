@@ -73,23 +73,6 @@
     background-color: #42545C;
   }
   
-  /* button.char {
-    position: absolute;
-    align-self: flex-end;
-    font-size: 1rem;
-    margin-bottom: 40px;
-    padding: 6px;
-  }
-
-  button.game {
-    position: absolute;
-    align-self: flex-end;
-    margin-bottom: 0;
-    font-size: 1rem;
-    margin-bottom: 0;
-    padding: 6px;
-  } */
-  
   button.delete:hover {
     background-color: #525252;
     color: #42545C;

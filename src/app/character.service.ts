@@ -89,7 +89,22 @@ export class CharacterService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<any>(`${this.charactersUrl}/?name=${term}`).pipe(
+    return this.http.get<any>(`${this.charactersUrl}/?where[name][like]=${term}`).pipe(
+      map(c => c.docs),
+      tap(x => x.length ?
+         this.log(`found characters matching "${term}"`) :
+         this.log(`no characters matching "${term}"`)),
+      catchError(this.handleError<Character[]>('searchCharacters', []))
+    );
+  }
+
+  loadCharacters(term: string): Observable<Character[]> {
+    if (!term.trim()) {
+      // if not search term, return empty hero array.
+      return of([]);
+    }
+    return this.http.get<any>(`${this.charactersUrl}/?where[game.title][like]=${term}`).pipe(
+      map(c => c.docs),
       tap(x => x.length ?
          this.log(`found characters matching "${term}"`) :
          this.log(`no characters matching "${term}"`)),

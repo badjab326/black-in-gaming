@@ -89,7 +89,7 @@ export class GameService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<any>(`${this.gamesUrl}/?name=${term}`).pipe(
+    return this.http.get<any>(`${this.gamesUrl}/?where[name][like]=${term}`).pipe(
       tap(x => x.length ?
          this.log(`found games matching "${term}"`) :
          this.log(`no games matching "${term}"`)),
