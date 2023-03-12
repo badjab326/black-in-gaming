@@ -24,7 +24,7 @@ export class CharacterDetailComponent {
   }
 
   getCharacter(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
+    const id = String(this.route.snapshot.paramMap.get('id'));
     this.characterService.getCharacter(id).subscribe(character => this.character = character);
   }
 

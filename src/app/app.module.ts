@@ -8,9 +8,13 @@ import { CharacterDetailComponent } from './character-detail/character-detail.co
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-// import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-// import { InMemoryDataService } from './in-memory-data.service';
 import { CharacterSearchComponent } from './character-search/character-search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatButtonModule} from '@angular/material/button';
+import { GameDetailComponent } from './game-detail/game-detail.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -20,19 +24,18 @@ import { CharacterSearchComponent } from './character-search/character-search.co
     MessagesComponent,
     DashboardComponent,
     CharacterSearchComponent,
+    GameDetailComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-//     HttpClientInMemoryWebApiModule.forRoot(
-//     InMemoryDataService, { dataEncapsulation: false }
-// )
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatGridListModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]

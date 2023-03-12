@@ -1,0 +1,12 @@
+<div *ngIf="game">
+
+    <h2>{{game.title | uppercase}}</h2>
+    <h3>Details</h3>
+    <img class="thumb" src="{{game.boxart}}">
+    <p>{{game.description[0].children[0].text}}</p>
+    <div>
+      <!-- <button type="button" (click)="save()">Save</button> -->
+      <button type="button" (click)="goBack()">Back</button>
+    </div>
+  
+  </div>

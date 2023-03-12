@@ -53,7 +53,7 @@ export class CharacterService {
     );
   }
 
-  getCharacter(id: number): Observable<Character> {
+  getCharacter(id: string): Observable<Character> {
     const url = `${this.charactersUrl}/${id}`;
     return this.http.get<Character>(url).pipe(
       tap(_ => this.log(`fetched character id=${id}`)),
@@ -76,7 +76,7 @@ export class CharacterService {
     );
   }
 
-  deleteCharacter(id: number): Observable<Character> {
+  deleteCharacter(id: string): Observable<Character> {
     const url = `${this.charactersUrl}/${id}`;
     return this.http.delete<Character>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted character id=${id}`)),
@@ -89,7 +89,7 @@ export class CharacterService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Character[]>(`${this.charactersUrl}/?name=${term}`).pipe(
+    return this.http.get<any>(`${this.charactersUrl}/?name=${term}`).pipe(
       tap(x => x.length ?
          this.log(`found characters matching "${term}"`) :
          this.log(`no characters matching "${term}"`)),

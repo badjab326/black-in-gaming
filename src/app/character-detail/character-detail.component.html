@@ -1,12 +1,12 @@
 <div *ngIf="character">
 
     <h2>{{character.name | uppercase}}</h2>
+    <img class="thumb" src="{{character.image}}" alt="Photo of {{character.name}}">
     <h3>Details</h3>
     <div><span>Originally appeared in: </span>{{character.game.title}}</div>
+    <p>{{character.bio[0].children[0].text}}</p>
     <div>
-      <label for="hero-name">Character name: </label>
-      <input id="hero-name" [(ngModel)]="character.name" placeholder="name">
-      <button type="button" (click)="save()">Save</button>
+      <!-- <button type="button" (click)="save()">Save</button> -->
       <button type="button" (click)="goBack()">Back</button>
     </div>
   
