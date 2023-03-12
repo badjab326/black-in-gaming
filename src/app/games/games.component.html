@@ -1,0 +1,17 @@
+<h2>Video Games Featuring Black Characters</h2>
+
+<div class="cardContainer">
+    <mat-card *ngFor="let game of games" routerLink="/game-detail/{{game.id}}" class="charCard">
+      <mat-card-header>
+        <img mat-card-avatar class="headerImage" src="{{game.boxart}}" alt="Photo of {{game.title}}">
+        <mat-card-title>{{game.title}}</mat-card-title>
+        <mat-card-subtitle>{{game.releaseDate}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image class="thumb" src="{{game.boxart}}" alt="Photo of {{game.title}}">
+      <mat-card-content>
+      </mat-card-content>
+      <mat-card-actions class="cardActions">
+        <button mat-button color="accent" class="char" title="{{game.title}}" routerLink="/game-detail/{{game.id}}">Details</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>

@@ -9,11 +9,10 @@
   </button>
 </div> -->
 
-<mat-grid-list cols="4" rowHeight="4:4" gutterSize="20px">
-  <mat-grid-tile *ngFor="let character of characters">
-    <mat-card class="example-card">
+<div class="cardContainer">
+    <mat-card *ngFor="let character of characters" routerLink="/detail/{{character.id}}" class="charCard">
       <mat-card-header>
-        <img mat-card-avatar class="example-header-image" src="{{character.game.boxart}}" alt="Photo of {{character.name}}">
+        <img mat-card-avatar class="headerImage" src="{{character.game.boxart}}" alt="Photo of {{character.name}}">
         <mat-card-title>{{character.name}}</mat-card-title>
         <mat-card-subtitle>{{character.game.title}}</mat-card-subtitle>
       </mat-card-header>
@@ -21,13 +20,12 @@
       <mat-card-content>
         <!-- <p>{{character.bio[0].children[0].text}}</p> -->
       </mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="primary" class="char" title="{{character.name}}" routerLink="/detail/{{character.id}}">Details</button>
-        <button mat-button color="accent" class="game" title="{{character.game}}" routerLink="/game-detail/{{character.game.id}}">{{character.game.title}}</button>
+      <mat-card-actions class="cardActions">
+        <button mat-button color="accent" class="char" title="{{character.name}}" routerLink="/detail/{{character.id}}">Details</button>
+        <button mat-button color="accent" class="game" title="{{character.game}}" routerLink="/game-detail/{{character.game.id}}">Game</button>
       </mat-card-actions>
     </mat-card>
-      </mat-grid-tile>
-  </mat-grid-list>
+  </div>
 
   <!-- <h2>Black Characters in Video Games</h2>
   <ul class="heroes">

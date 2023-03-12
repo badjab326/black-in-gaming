@@ -1,13 +1,17 @@
 <div *ngIf="character">
 
     <h2>{{character.name | uppercase}}</h2>
-    <img class="thumb" src="{{character.image}}" alt="Photo of {{character.name}}">
+    <img class="detailPic" src="{{character.image}}" alt="Photo of {{character.name}}">
+    <br />
+
     <h3>Details</h3>
+    <div class="deetBox">
     <div><span>Originally appeared in: </span>{{character.game.title}}</div>
+    <br />
     <p>{{character.bio[0].children[0].text}}</p>
     <div>
       <!-- <button type="button" (click)="save()">Save</button> -->
       <button type="button" (click)="goBack()">Back</button>
     </div>
-  
+  </div>
   </div>

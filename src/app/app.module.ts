@@ -15,6 +15,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatButtonModule} from '@angular/material/button';
 import { GameDetailComponent } from './game-detail/game-detail.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { GamesComponent } from './games/games.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,7 @@ import {MatCardModule} from '@angular/material/card';
     DashboardComponent,
     CharacterSearchComponent,
     GameDetailComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,9 @@ import {MatCardModule} from '@angular/material/card';
     MatSlideToggleModule,
     MatGridListModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [ AppComponent ]
