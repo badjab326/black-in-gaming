@@ -26,8 +26,23 @@ export class GameDetailComponent {
    // Each Column Definition results in one Column.
  public columnDefs: ColDef[] = [
   { field: 'name'},
-  { field: 'image'},
-  { field: 'price' }
+  {
+    headerName: 'Image',
+    field: 'image',
+    valueFormatter: `(value)`,
+    valueParser: 'String',
+    cellRenderer: (params: any) => {
+      console.log(params)
+      return `<img src='${params.data.image}' style="height:100%;"/>`
+    }
+  },
+  { headerName: 'Bio',
+    field: 'bio',
+    valueFormatter: `(value)[0].children[0].text`,
+    valueParser: 'String',
+    cellStyle: {wordBreak: 'normal'},
+    wrapText: true,
+  }
 ];
 
 // DefaultColDef sets props common to all Columns
@@ -67,7 +82,7 @@ onCellClicked( e: CellClickedEvent): void {
   console.log('cellClicked', e);
 }
 
-// Example using Grid's API
+// Using Grid's API
 clearSelection(): void {
   this.agGrid.api.deselectAll();
 }

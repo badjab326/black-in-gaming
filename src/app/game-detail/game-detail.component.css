@@ -37,3 +37,11 @@ body {
       color: #ccc;
       cursor: auto;
     }
+    .ag-theme-alpine {
+        width: 40% !important;
+        height: 40% !important;
+        margin: 0 auto;
+    }
+    .back {
+        text-align: center;
+    }

@@ -7,13 +7,9 @@
     <h3>Details</h3>
     <div class="deetBox">
     <p>{{game.description[0].children[0].text}}</p>
-    <div>
-      <button type="button" (click)="goBack()">Back</button>
-    </div>
     </div>
   </div>
-
-<!-- Button to clear selection -->
+  <!-- Button to clear selection -->
 <button (click)="clearSelection()">Clear Selection</button>
 <!-- AG Grid Angular Component -->
 <ag-grid-angular
@@ -23,7 +19,11 @@
    [defaultColDef]="defaultColDef"
    [rowData]="rowData$ | async"
    [rowSelection]="'multiple'"
+   [rowHeight]="100"
    [animateRows]="true"
    (gridReady)="onGridReady($event)"
    (cellClicked)="onCellClicked($event)"
  ></ag-grid-angular>
+ <div class="back">
+    <button type="button" (click)="goBack()">Back</button>
+  </div>
