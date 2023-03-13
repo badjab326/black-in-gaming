@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import {
-   debounceTime, distinctUntilChanged, switchMap
- } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Character } from '../character';
 import { CharacterService } from '../character.service';
 
 @Component({
   selector: 'app-character-search',
   templateUrl: './character-search.component.html',
-  styleUrls: [ './character-search.component.css' ]
+  styleUrls: ['./character-search.component.css'],
 })
 export class CharacterSearchComponent implements OnInit {
   characters$!: Observable<Character[]>;
@@ -19,7 +17,7 @@ export class CharacterSearchComponent implements OnInit {
 
   // Push a search term into the observable stream.
   search(term: string): void {
-    console.log(term)
+    console.log(term);
     this.searchTerms.next(term);
   }
 
@@ -32,7 +30,7 @@ export class CharacterSearchComponent implements OnInit {
       distinctUntilChanged(),
 
       // switch to new search observable each time the term changes
-      switchMap((term: string) => this.characterService.searchCharacters(term)),
+      switchMap((term: string) => this.characterService.searchCharacters(term))
     );
   }
 }

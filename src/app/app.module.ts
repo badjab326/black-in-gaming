@@ -45,9 +45,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatCardModule,
     MatDividerModule,
     MatSidenavModule,
-    AgGridModule
+    AgGridModule,
   ],
   providers: [],
-  bootstrap: [ AppComponent ]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

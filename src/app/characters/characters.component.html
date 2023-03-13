@@ -10,24 +10,54 @@
 </div> -->
 
 <div class="cardContainer">
-    <mat-card *ngFor="let character of characters" routerLink="/detail/{{character.id}}" class="charCard">
-      <mat-card-header>
-        <img mat-card-avatar class="headerImage" src="{{character.game.boxart}}" alt="Photo of {{character.name}}">
-        <mat-card-title>{{character.name}}</mat-card-title>
-        <mat-card-subtitle>{{character.game.title}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image class="thumb" src="{{character.image}}" alt="Photo of {{character.name}}">
-      <mat-card-content>
-        <!-- <p>{{character.bio[0].children[0].text}}</p> -->
-      </mat-card-content>
-      <mat-card-actions class="cardActions">
-        <button mat-button color="accent" class="char" title="{{character.name}}" routerLink="/detail/{{character.id}}">Details</button>
-        <button mat-button color="accent" class="game" title="{{character.game}}" routerLink="/game-detail/{{character.game.id}}">Game</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
+  <mat-card
+    *ngFor="let character of characters"
+    routerLink="/detail/{{ character.id }}"
+    class="charCard"
+  >
+    <mat-card-header>
+      <img
+        mat-card-avatar
+        class="headerImage"
+        src="{{ character.game.boxart }}"
+        alt="Photo of {{ character.name }}"
+      />
+      <mat-card-title>{{ character.name }}</mat-card-title>
+      <mat-card-subtitle>{{ character.game.title }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      class="thumb"
+      src="{{ character.image }}"
+      alt="Photo of {{ character.name }}"
+    />
+    <mat-card-content>
+      <!-- <p>{{character.bio[0].children[0].text}}</p> -->
+    </mat-card-content>
+    <mat-card-actions class="cardActions">
+      <button
+        mat-button
+        color="accent"
+        class="char"
+        title="{{ character.name }}"
+        routerLink="/detail/{{ character.id }}"
+      >
+        Details
+      </button>
+      <button
+        mat-button
+        color="accent"
+        class="game"
+        title="{{ character.game }}"
+        routerLink="/game-detail/{{ character.game.id }}"
+      >
+        Game
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 
-  <!-- <h2>Black Characters in Video Games</h2>
+<!-- <h2>Black Characters in Video Games</h2>
   <ul class="heroes">
       <li *ngFor="let character of characters">
         <button type="button" [class.selected]="character === selectedCharacter" (click)="onSelect(character)">
@@ -37,4 +67,3 @@
     </ul>
   
     <app-character-detail [character]="selectedCharacter"></app-character-detail> -->
-  

@@ -12,11 +12,11 @@ const routes: Routes = [
   { path: 'detail/:id', component: CharacterDetailComponent },
   { path: 'games', component: GamesComponent },
   { path: 'game-detail/:id', component: GameDetailComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

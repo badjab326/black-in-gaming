@@ -1,122 +1,121 @@
 /* HeroesComponent's private CSS styles */
 .heroes {
-    margin: 0 0 2em 0;
-    list-style-type: none;
-    padding: 0;
-    width: 15em;
-  }
-  
-  input {
-    display: block;
-    width: 100%;
-    padding: .5rem;
-    margin: 1rem 0;
-    box-sizing: border-box;
-  }
-  
-  .heroes li {
-    position: relative;
-    cursor: pointer;
-  }
-  
-  .heroes li:hover {
-    left: .1em;
-  }
-  
-  .heroes a {
-    color: #333;
-    text-decoration: none;
-    background-color: #EEE;
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
-    display: block;
-    width: 100%;
-  }
-  
-  .heroes a:hover {
-    color: #2c3a41;
-    background-color: #e6e6e6;
-  }
-  
-  .heroes a:active {
-    background-color: #525252;
-    color: #fafafa;
-  }
-  
-  .heroes .badge {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #405061;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    min-width: 16px;
-    text-align: right;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
-  }
-  
-  .add-button {
-   padding: .5rem 1.5rem;
-   font-size: 1rem;
-   margin-bottom: 2rem;
-  }
-  
-  .add-button:hover {
-    color: white;
-    background-color: #42545C;
-  }
-  
-  button.delete:hover {
-    background-color: #525252;
-    color: #42545C;
-  }
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
 
-  .thumb {
-    display: flex;
-    margin: 0 auto;
-    height: 200px;
-    max-width: 90%;
-    object-fit: scale-down;
-  }
+input {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+  box-sizing: border-box;
+}
 
-  .cardContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+.heroes li {
+  position: relative;
+  cursor: pointer;
+}
 
-  .charCard {
-    height: 30%;
-    width: 20%;
-    box-shadow: 0px 108px 80px rgba(0, 0, 0, 0.22),
+.heroes li:hover {
+  left: 0.1em;
+}
+
+.heroes a {
+  color: #333;
+  text-decoration: none;
+  background-color: #eee;
+  margin: 0.5em;
+  padding: 0.3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+}
+
+.heroes a:hover {
+  color: #2c3a41;
+  background-color: #e6e6e6;
+}
+
+.heroes a:active {
+  background-color: #525252;
+  color: #fafafa;
+}
+
+.heroes .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #405061;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: 0.8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.add-button {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  margin-bottom: 2rem;
+}
+
+.add-button:hover {
+  color: white;
+  background-color: #42545c;
+}
+
+button.delete:hover {
+  background-color: #525252;
+  color: #42545c;
+}
+
+.thumb {
+  display: flex;
+  margin: 0 auto;
+  height: 200px;
+  max-width: 90%;
+  object-fit: scale-down;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.charCard {
+  height: 30%;
+  width: 20%;
+  box-shadow: 0px 108px 80px rgba(0, 0, 0, 0.22),
     0px 45.1198px 33.4221px rgba(0, 0, 0, 0.158148),
     0px 24.1232px 17.869px rgba(0, 0, 0, 0.131144),
     0px 13.5233px 10.0172px rgba(0, 0, 0, 0.11),
     0px 7.18211px 5.32008px rgba(0, 0, 0, 0.0888564),
     0px 2.98864px 2.21381px rgba(0, 0, 0, 0.061852);
-    margin: 20px;
-  }
-
-  .charCard:hover {
-    cursor: pointer;
-    transform: translateY(-10px);
-    transition: 0.5s ease-in-out;
+  margin: 20px;
 }
-  
-  .headerImage {
-    background-size: cover;
-  }
 
-  .cardActions {
-    display: flex;
-    justify-content: center;
-  }
-  
+.charCard:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: 0.5s ease-in-out;
+}
+
+.headerImage {
+  background-size: cover;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: center;
+}

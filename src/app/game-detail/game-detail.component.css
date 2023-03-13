@@ -1,47 +1,70 @@
 /* HeroDetailComponent's private CSS styles */
 body {
-    display: flex;
-    justify-content: center;
-  }
-  .detailPic {
-    display: flex;
-    margin: 0 auto;
-    max-height: 50vh;
-  }
-  .deetBox {
-    text-align: center;
-    margin: 0 auto;
-    width: 50vw;
-  }
-  label {
-      color: #435960;
-      font-weight: bold;
-    }
-    input {
-      font-size: 1em;
-      padding: .5rem;
-    }
-    button {
-      margin-top: 20px;
-      margin-right: .5rem;
-      background-color: #eee;
-      padding: 1rem;
-      border-radius: 4px;
-      font-size: 1rem;
-    }
-    button:hover {
-      background-color: #cfd8dc;
-    }
-    button:disabled {
-      background-color: #eee;
-      color: #ccc;
-      cursor: auto;
-    }
-    .ag-theme-alpine {
-        width: 40% !important;
-        height: 40% !important;
-        margin: 0 auto;
-    }
-    .back {
-        text-align: center;
-    }
+  display: flex;
+  justify-content: center;
+}
+.detailPic {
+  display: flex;
+  margin: 0 auto;
+  max-height: 50vh;
+  box-shadow: 0px 108px 80px rgba(0, 0, 0, 0.22),
+    0px 45.1198px 33.4221px rgba(0, 0, 0, 0.158148),
+    0px 24.1232px 17.869px rgba(0, 0, 0, 0.131144),
+    0px 13.5233px 10.0172px rgba(0, 0, 0, 0.11),
+    0px 7.18211px 5.32008px rgba(0, 0, 0, 0.0888564),
+    0px 2.98864px 2.21381px rgba(0, 0, 0, 0.061852);
+}
+.deetBox {
+  text-align: center;
+  margin: 0 auto;
+  width: 50vw;
+}
+label {
+  color: #435960;
+  font-weight: bold;
+}
+input {
+  font-size: 1em;
+  padding: 0.5rem;
+}
+button {
+  margin-top: 20px;
+  margin-right: 0.5rem;
+  background-color: #eee;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button:disabled {
+  background-color: #eee;
+  color: #ccc;
+  cursor: auto;
+}
+.ag-theme-alpine {
+  width: 50% !important;
+  height: 50% !important;
+  margin: 0 auto;
+  --ag-foreground-color: rgb(255, 255, 255);
+  --ag-background-color: #6c0700;
+  --ag-header-foreground-color: #ffffff;
+  --ag-header-background-color: #000000;
+  --ag-odd-row-background-color: #004918;
+  --ag-header-column-resize-handle-color: rgb(126, 46, 132);
+  --ag-borders: none;
+  /* then add back a border between rows */
+  --ag-row-border-style: solid;
+  --ag-row-border-width: 5px;
+  --ag-row-border-color: #000000;
+  box-shadow: 0px 108px 80px rgba(0, 0, 0, 0.22),
+    0px 45.1198px 33.4221px rgba(0, 0, 0, 0.158148),
+    0px 24.1232px 17.869px rgba(0, 0, 0, 0.131144),
+    0px 13.5233px 10.0172px rgba(0, 0, 0, 0.11),
+    0px 7.18211px 5.32008px rgba(0, 0, 0, 0.0888564),
+    0px 2.98864px 2.21381px rgba(0, 0, 0, 0.061852);
+}
+.back {
+  text-align: center;
+}
