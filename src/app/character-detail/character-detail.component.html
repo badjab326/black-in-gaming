@@ -9,11 +9,38 @@
 
   <h2>Details</h2>
   <div class="deetBox">
-    <div><span>First Appearance: </span>{{ character.game.title }}</div>
+    <div>
+      <span class="game-link" routerLink="/game-detail/{{ character.game.id }}"
+        >First Appearance: {{ character.game.title }}</span
+      >
+    </div>
     <br />
     <p>{{ character.bio[0].children[0].text }}</p>
     <div>
-      <!-- <button type="button" (click)="save()">Save</button> -->
+      <br />
+      <h2>Gallery</h2>
+      <mat-grid-list cols="4" rowHeight="1:2">
+        <mat-grid-tile
+          ><a target="blank" href="{{character.pics[0].pic1 ? character.pics[0].pic1 : null}}"><img
+            class="pics"
+            src="{{ character.pics[0].pic1 ? character.pics[0].pic1 : null }}"
+        /></a></mat-grid-tile>
+        <mat-grid-tile
+          ><a target="blank" href="{{character.pics[0].pic2 ? character.pics[0].pic2 : null}}"><img
+            class="pics"
+            src="{{ character.pics[0].pic2 ? character.pics[0].pic2 : null }}"
+        /></a></mat-grid-tile>
+        <mat-grid-tile
+          ><a target="blank" href="{{character.pics[0].pic3 ? character.pics[0].pic3 : null}}"><img
+            class="pics"
+            src="{{ character.pics[0].pic3 ? character.pics[0].pic3 : null }}"
+        /></a></mat-grid-tile>
+        <mat-grid-tile
+          ><a target="blank" href="{{character.pics[0].pic4 ? character.pics[0].pic4 : null}}"><img
+            class="pics"
+            src="{{ character.pics[0].pic4 ? character.pics[0].pic4 : null }}"
+        /></a></mat-grid-tile>
+      </mat-grid-list>
       <button type="button" (click)="goBack()">Back</button>
     </div>
   </div>

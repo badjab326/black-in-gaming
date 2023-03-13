@@ -110,7 +110,7 @@ export class CharacterService {
       return of([]);
     }
     return this.http
-      .get<any>(`${this.charactersUrl}/?where[game.title][like]=${term}`)
+      .get<any>(`${this.charactersUrl}/?where[allGames.title][like]=${term}`)
       .pipe(
         map((c) => c.docs),
         tap((x) =>

@@ -43,3 +43,22 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+.game-link:hover{
+  cursor: pointer;
+}
+mat-grid-tile {
+  display: flex;
+}
+.pics {
+  display: flex;
+  height: 100%;
+}
+a {
+  display: flex;
+  height: 100%;
+}
+a:hover {
+  cursor: pointer;
+  transform: translateY(-10px);
+  transition: 0.5s ease-in-out;
+}
