@@ -1,6 +1,8 @@
 <div id="search-component">
-  <label for="search-box">Character Search</label>
-  <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+  <label for="search-box"><h2>Character Search</h2></label>
+  <br />
+  <br />
+  <input #searchBox id="search-box" (input)="search(searchBox.value)"  placeholder="Who are you looking for?"/>
 
   <ul class="search-result">
     <li *ngFor="let character of characters$ | async">

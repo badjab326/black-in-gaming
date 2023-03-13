@@ -1,11 +1,3 @@
-/* HeroesComponent's private CSS styles */
-.heroes {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
-}
-
 input {
   display: block;
   width: 100%;
@@ -118,4 +110,17 @@ button.delete:hover {
 .cardActions {
   display: flex;
   justify-content: center;
+}
+@media screen and (max-width: 1024px) {
+  .charCard {
+    height: 50%;
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .charCard {
+    height: 50%;
+    width: 100%;
+  }
 }

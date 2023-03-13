@@ -20,6 +20,7 @@ h2 {
   justify-content: space-around;
   align-content: flex-start;
   align-items: flex-start;
+  padding: 30px;
 }
 
 a {

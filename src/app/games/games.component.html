@@ -14,7 +14,7 @@
         alt="Photo of {{ game.title }}"
       />
       <mat-card-title>{{ game.title }}</mat-card-title>
-      <mat-card-subtitle>{{ game.releaseDate }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ game.releaseDate.slice(0, game.releaseDate.length-14) }}</mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image

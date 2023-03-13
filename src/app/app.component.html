@@ -1,10 +1,20 @@
-<h1>{{ title }}</h1>
-<nav>
-  <a routerLink="/dashboard">Dashboard</a>
-  <a routerLink="/characters">Characters</a>
-  <a routerLink="/games">Games</a>
-</nav>
-<br />
-<mat-divider></mat-divider>
-<br />
-<router-outlet></router-outlet>
+<div class="app-container">
+  <!-- <mat-sidenav-container> -->
+    <mat-toolbar class="navbar">
+      <button mat-icon-button routerLink="/dashboard" class="example-icon" aria-label="menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span routerLink="/dashboard" class="logo">{{title}}</span>
+      <span class="spacer"></span>
+      <button mat-icon-button routerLink="/characters" class="example-icon favorite-icon" aria-label="people icon">
+        <mat-icon>people</mat-icon>
+      </button>
+      <button mat-icon-button routerLink="/games" class="example-icon" aria-label="game icon">
+        <mat-icon>gamepad</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="app-body">
+      <router-outlet></router-outlet> 
+    </div>
+  <!-- </mat-sidenav-container> -->
+</div>

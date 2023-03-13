@@ -2,6 +2,25 @@
 h1 {
   margin-bottom: 0;
 }
+.logo {
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+.logo:hover {
+  cursor: pointer;
+}
+.navbar {
+  background-color: #40515c;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+.spacer {
+  flex: 1 1 auto;
+}
 nav a {
   padding: 1rem;
   text-decoration: none;
@@ -17,4 +36,20 @@ nav a:hover {
 }
 nav a.active {
   background-color: black;
+}
+.app-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.app-body {
+  overflow: auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 64px;
+  padding-top: 24px;
 }

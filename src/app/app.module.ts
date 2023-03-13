@@ -21,6 +21,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
+
 
 @NgModule({
   declarations: [
@@ -45,6 +49,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatCardModule,
     MatDividerModule,
     MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
     AgGridModule,
   ],
   providers: [],

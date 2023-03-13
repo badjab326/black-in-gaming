@@ -1,12 +1,15 @@
 <div *ngIf="game">
-  <h2>{{ game.title | uppercase }}</h2>
+  <h1>{{ game.title | uppercase }}</h1>
   <img class="detailPic" src="{{ game.boxart }}" />
+  <br />
   <br />
   <h2>Details</h2>
   <div class="deetBox">
     <p>{{ game.description[0].children[0].text }}</p>
   </div>
 </div>
+<br />
+<mat-divider></mat-divider>
 <br />
 <h2>Black Characters Featured</h2>
 <!-- AG Grid Angular Component -->

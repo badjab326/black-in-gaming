@@ -1,5 +1,5 @@
 <div *ngIf="character">
-  <h2>{{ character.name | uppercase }}</h2>
+  <h1>{{ character.name | uppercase }}</h1>
   <img
     class="detailPic"
     src="{{ character.image }}"
@@ -7,9 +7,9 @@
   />
   <br />
 
-  <h3>Details</h3>
+  <h2>Details</h2>
   <div class="deetBox">
-    <div><span>Originally appeared in: </span>{{ character.game.title }}</div>
+    <div><span>First Appearance: </span>{{ character.game.title }}</div>
     <br />
     <p>{{ character.bio[0].children[0].text }}</p>
     <div>
