@@ -149,4 +149,8 @@ button.delete:hover {
       height: 50%;
       width: 100%;
     }
+    h2 {
+        display: flex;
+        text-align: center;
+    }
   }

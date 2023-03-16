@@ -4,9 +4,7 @@ import { Location } from '@angular/common';
 import { GameService } from '../game.service';
 import { CharacterService } from '../character.service';
 import { Character } from '../character';
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Game } from '../character';
-import { HttpClient } from '@angular/common/http';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable, Subject } from 'rxjs';
@@ -23,14 +21,13 @@ export class GameDetailComponent {
 
   // Each Column Definition results in one Column.
   public columnDefs: ColDef[] = [
-    { field: 'name', maxWidth: 150, flex: 2 },
+    { field: 'name', maxWidth: 150},
     {
       headerName: 'Image',
       field: 'image',
       valueFormatter: `(value)`,
       valueParser: 'String',
       cellRenderer: (params: any) => {
-        console.log(params);
         return `<img src='${params.data.image}' style="height:100%;"/>`;
       },
     },

@@ -13,7 +13,6 @@ export class CharactersComponent {
   characters: Character[] = [];
 
   constructor(private characterService: CharacterService) {}
-  // constructor(private characterService: CharacterService, private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.getCharacters();

@@ -19,7 +19,7 @@ export class CharacterService {
     this.messageService.add(`CharacterService: ${message}`);
   }
 
-  private charactersUrl = 'http://localhost:3000/api/characters'; // URL to web api
+  private charactersUrl = 'https://back-end-gaming-production.up.railway.app/api/characters'
 
   // Handle Http operation that failed.
   // Let the app continue.

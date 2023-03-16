@@ -19,7 +19,7 @@ export class GameService {
     this.messageService.add(`GameService: ${message}`);
   }
 
-  private gamesUrl = 'http://localhost:3000/api/games'; // URL to web api
+  private gamesUrl = 'https://back-end-gaming-production.up.railway.app/api/games'; // URL to web api
 
   // Handle Http operation that failed.
   // Let the app continue.
