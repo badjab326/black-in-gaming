@@ -16,7 +16,7 @@
     </div>
     <br />
     <p>{{ character.bio[0].children[0].text }}</p>
-    <div>
+    <div *ngIf="character.pics[0].pic1">
       <br />
       <h2>Gallery</h2>
       <mat-grid-list cols="4" rowHeight="1:2">
@@ -41,7 +41,9 @@
             src="{{ character.pics[0].pic4 ? character.pics[0].pic4 : null }}"
         /></a></mat-grid-tile>
       </mat-grid-list>
-      <button type="button" (click)="goBack()">Back</button>
     </div>
+    <h2>Black Characters Featured</h2>
+<!-- AG Grid Angular Component -->
+    <button type="button" (click)="goBack()">Back</button>
   </div>
 </div>

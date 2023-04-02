@@ -1,4 +1,8 @@
 /* AppComponent's private CSS styles */
+* {
+  max-width: 100vw;
+}
+
 h1 {
   margin-bottom: 0;
 }
@@ -11,12 +15,11 @@ h1 {
 }
 .navbar {
   background-color: #40515c;
-  width: 100%;
+  max-width: 100vw;
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
 }
 .spacer {
   flex: 1 1 auto;
@@ -54,11 +57,18 @@ nav a.active {
   padding-top: 24px;
 }
 @media screen and (max-width: 768px) {
+
   .logo {
     margin-left: -20px;
+    font-size: 1.4rem;
+    padding-left: 10px
   }
   .mat-toolbar-row, .mat-toolbar-single-row {
     box-sizing: content-box;
-    width: 123%;
+    padding: 0
+  }
+  button {
+    padding: 0;
+    margin: 0;
   }
 }
