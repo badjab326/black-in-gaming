@@ -19,7 +19,8 @@ export class GameService {
     this.messageService.add(`GameService: ${message}`);
   }
 
-  private gamesUrl = 'https://back-end-gaming-production.up.railway.app/api/games'; // URL to web api
+  private gamesUrl =
+    'https://back-end-gaming-production.up.railway.app/api/games'; // URL to web api
 
   // Handle Http operation that failed.
   // Let the app continue.
@@ -46,7 +47,17 @@ export class GameService {
   getGames(): Observable<Game[]> {
     return this.http.get<any>(this.gamesUrl).pipe(
       tap((_) => this.log('fetched games')),
-      map((response) => response.docs),
+      map((response) =>
+        response.docs.sort(function (a: any, b: any) {
+          if (a.title < b.title) {
+            return -1;
+          }
+          if (a.title > b.title) {
+            return 1;
+          }
+          return 0;
+        })
+      ),
       catchError(this.handleError<Game[]>('getGames', []))
     );
   }

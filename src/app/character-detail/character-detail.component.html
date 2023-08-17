@@ -6,12 +6,15 @@
     alt="Photo of {{ character.name }}"
   />
   <br />
-
+  <br />
   <h2>Details</h2>
   <div class="deetBox">
-    <div>
-      <span class="game-link" routerLink="/game-detail/{{ character.game.id }}"
-        >First Appearance: {{ character.game.title }}</span
+    <div class="firstAppear">
+      First Appearance:
+      <span
+        class="game-link"
+        routerLink="/game-detail/{{ character.game.id }}"
+        >{{ character.game.title }}</span
       >
     </div>
     <br />
@@ -62,8 +65,24 @@
         ></mat-grid-tile>
       </mat-grid-list>
     </div>
-    <!-- <h2>Appearances</h2> -->
-    <!-- AG Grid Angular Component -->
-    <button type="button" (click)="goBack()">Back</button>
   </div>
+</div>
+<br />
+<mat-divider></mat-divider>
+<br />
+<h2>Appearances</h2>
+<!-- AG Grid Angular Component -->
+<ag-grid-angular
+  class="ag-theme-alpine"
+  [columnDefs]="columnDefs"
+  [defaultColDef]="defaultColDef"
+  [rowData]="rowData$ | async"
+  [rowSelection]="'multiple'"
+  [rowHeight]="150"
+  [animateRows]="true"
+  (gridReady)="onGridReady($event)"
+  (cellClicked)="onCellClicked($event)"
+></ag-grid-angular>
+<div class="back">
+  <button type="button" (click)="goBack()">Back</button>
 </div>

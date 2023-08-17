@@ -19,7 +19,8 @@ export class CharacterService {
     this.messageService.add(`CharacterService: ${message}`);
   }
 
-  private charactersUrl = 'https://back-end-gaming-production.up.railway.app/api/characters'
+  private charactersUrl =
+    'https://back-end-gaming-production.up.railway.app/api/characters';
 
   // Handle Http operation that failed.
   // Let the app continue.
@@ -46,7 +47,17 @@ export class CharacterService {
   getCharacters(): Observable<Character[]> {
     return this.http.get<any>(this.charactersUrl).pipe(
       tap((_) => this.log('fetched characters')),
-      map((response) => response.docs),
+      map((response) =>
+        response.docs.sort(function (a: any, b: any) {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        })
+      ),
       catchError(this.handleError<Character[]>('getCharacters', []))
     );
   }
@@ -94,7 +105,17 @@ export class CharacterService {
     return this.http
       .get<any>(`${this.charactersUrl}/?where[name][like]=${term}`)
       .pipe(
-        map((c) => c.docs),
+        map((c) =>
+          c.docs.sort(function (a: any, b: any) {
+            if (a.name < b.name) {
+              return -1;
+            }
+            if (a.name > b.name) {
+              return 1;
+            }
+            return 0;
+          })
+        ),
         tap((x) =>
           x.length
             ? this.log(`found characters matching "${term}"`)
@@ -112,7 +133,44 @@ export class CharacterService {
     return this.http
       .get<any>(`${this.charactersUrl}/?where[allGames.title][like]=${term}`)
       .pipe(
-        map((c) => c.docs),
+        map((c) =>
+          c.docs.sort(function (a: any, b: any) {
+            if (a.name < b.name) {
+              return -1;
+            }
+            if (a.name > b.name) {
+              return 1;
+            }
+            return 0;
+          })
+        ),
+        tap((x) =>
+          x.length
+            ? this.log(`found characters matching "${term}"`)
+            : this.log(`no characters matching "${term}"`)
+        ),
+        catchError(this.handleError<Character[]>('searchCharacters', []))
+      );
+  }
+  loadCharacterGames(term: string): Observable<any[]> {
+    if (!term.trim()) {
+      // if not search term, return empty character array.
+      return of([]);
+    }
+    return this.http
+      .get<any>(`${this.charactersUrl}/${term}`)
+      .pipe(
+        map((c) =>
+          c.allGames.sort(function (a: any, b: any) {
+            if (a.title < b.title) {
+              return -1;
+            }
+            if (a.title > b.title) {
+              return 1;
+            }
+            return 0;
+          })
+        ),
         tap((x) =>
           x.length
             ? this.log(`found characters matching "${term}"`)

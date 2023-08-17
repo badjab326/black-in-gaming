@@ -16,7 +16,6 @@ import { Observable, Subject } from 'rxjs';
 })
 export class GameDetailComponent {
   @Input() game?: Game;
-  characters$!: Observable<Character[]>;
   private searchTerms = new Subject<string>();
 
   // Each Column Definition results in one Column.
